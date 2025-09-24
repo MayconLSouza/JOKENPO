@@ -5,7 +5,6 @@ public class Game {
 
     private Player jogador = new Player("Jogador");
     private Player computador = new Player("Computador");
-    private boolean isFinalizado = false;
     private int vitoriasJogador = 0;
     private int vitoriasComputador = 0;
 
@@ -23,7 +22,7 @@ public class Game {
         return computador.getJogada(); 
     }
 
-    public String resultado() {
+    public String resultadoRodada() {
 
         Jogada jogadaUsuario = jogador.getJogada();
         Jogada jogadaComputador = computador.getJogada();
@@ -31,18 +30,26 @@ public class Game {
         if(jogadaUsuario == jogadaComputador) {
             return "Empate!";
         } else if (jogadaUsuario.venceDe(jogadaComputador)){
-            isFinalizado = true;
             vitoriasJogador++;
             return jogador.getNome() + " venceu!";
         } else {
-            isFinalizado = true;
             vitoriasComputador++;
             return computador.getNome() + " venceu!";
         }
     }
 
-    public boolean isFinalizado() {
-        return isFinalizado;
+    public String resultadoFinal() {
+
+        Integer vitoriasJogador = getVitoriasJogador();
+        Integer vitoriasComputador = getVitoriasComputador();
+
+        if (vitoriasJogador > vitoriasComputador) {
+            return "Jogador está ganhando!";
+        } else if (vitoriasComputador > vitoriasJogador) {
+            return "Computador está ganhando!";
+        } else {
+            return "Empate!";
+        }
     }
 
     public int getVitoriasJogador() {

@@ -43,8 +43,7 @@ O projeto segue a arquitetura padrão Spring Boot com os seguintes componentes p
     "jogadaComputador": "TESOURA",
     "vitoriasJogador": 1,
     "vitoriasComputador": 0,
-    "finalizado": true,
-    "resultadoFinal": "Jogador venceu!"
+    "resultadoFinal": "Jogador está ganhando!"
 }
 ```
 

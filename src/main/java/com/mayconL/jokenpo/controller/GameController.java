@@ -12,35 +12,23 @@ import com.mayconL.jokenpo.model.Game;
 @RestController
 @RequestMapping("/api/jokenpo")
 public class GameController {
-
     private final Game jogo = new Game();
 
     @PostMapping("/jogar")
     public ResultadoResponse jogar(@RequestBody JogadaRequest request) {
 
-        if(jogo.isFinalizado()) {
-            return new ResultadoResponse(
-                "O jogo já terminou!",
-                null,
-                jogo.getVitoriasJogador(),
-                jogo.getVitoriasComputador(),
-                true,
-                jogo.resultado()
-            );
-        }
 
         jogo.setJogadaJogador(request.getJogada());
         jogo.setJogadaComputador();
-        String resultadoRodada = jogo.resultado();
+        String resultadoRodada = jogo.resultadoRodada();
+        String resultadoFinal = jogo.resultadoFinal();
 
         return new ResultadoResponse(
             resultadoRodada, 
             jogo.getJogadaComputador(),
             jogo.getVitoriasJogador(), 
-            jogo.getVitoriasComputador(), 
-            jogo.isFinalizado(), 
-            jogo.isFinalizado() ? resultadoRodada : null
+            jogo.getVitoriasComputador(),
+            resultadoFinal
         );
     }
-
 }
