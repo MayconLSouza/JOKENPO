@@ -49,7 +49,7 @@ O projeto segue a arquitetura padrão Spring Boot com os seguintes componentes p
 }
 ```
 
-### Realizar uma Jogada
+### Reiniciar o jogo
 
 **Endpoint**: POST `/api/jokenpo/reiniciar`
 
