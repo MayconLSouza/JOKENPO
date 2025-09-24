@@ -8,6 +8,7 @@ API REST para o clássico jogo Pedra, Papel e Tesoura onde jogadores podem compe
 - Spring Boot 3.5.6
 - Maven
 - Lombok
+- Postman
 
 ## Estrutura do Projeto
 
