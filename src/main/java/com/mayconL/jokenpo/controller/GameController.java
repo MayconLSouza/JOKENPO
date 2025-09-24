@@ -17,18 +17,35 @@ public class GameController {
     @PostMapping("/jogar")
     public ResultadoResponse jogar(@RequestBody JogadaRequest request) {
 
-
         jogo.setJogadaJogador(request.getJogada());
         jogo.setJogadaComputador();
         String resultadoRodada = jogo.resultadoRodada();
         String resultadoFinal = jogo.resultadoFinal();
 
         return new ResultadoResponse(
-            resultadoRodada, 
+            resultadoRodada,
+            jogo.getNumeroRodadas(),
             jogo.getJogadaComputador(),
             jogo.getVitoriasJogador(), 
             jogo.getVitoriasComputador(),
+            jogo.getEmpates(),
             resultadoFinal
         );
     }
+
+    @PostMapping("/reiniciar")
+    public ResultadoResponse reiniciar() {
+        jogo.reiniciarJogo();
+        
+        return new ResultadoResponse(
+            null,
+            jogo.getNumeroRodadas(), 
+            null,
+            jogo.getVitoriasJogador(), 
+            jogo.getVitoriasComputador(),
+            jogo.getEmpates(),
+            "Jogo reiniciado!"
+        );
+    }
+    
 }

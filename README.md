@@ -40,10 +40,29 @@ O projeto segue a arquitetura padrão Spring Boot com os seguintes componentes p
 ```json
 {
     "resultadoRodada": "Jogador venceu!",
+    "numeroRodadas": 1,
     "jogadaComputador": "TESOURA",
     "vitoriasJogador": 1,
     "vitoriasComputador": 0,
+    "empates": 0,
     "resultadoFinal": "Jogador está ganhando!"
+}
+```
+
+### Realizar uma Jogada
+
+**Endpoint**: POST `/api/jokenpo/reiniciar`
+
+**Resposta**:
+```json
+{
+    "resultadoRodada": null,
+    "numeroRodadas": 0,
+    "jogadaComputador": null,
+    "viroriasJogador": 0,
+    "viroriasComputador": 0,
+    "empates": 0,
+    "resultadoFinal": "Jogo reiniciado!"
 }
 ```
 

@@ -7,6 +7,8 @@ public class Game {
     private Player computador = new Player("Computador");
     private int vitoriasJogador = 0;
     private int vitoriasComputador = 0;
+    private int numeroRodadas = 0;
+    private int empates = 0;
 
     public void setJogadaJogador(Jogada jogada) {
         jogador.escolherJogada(jogada);
@@ -26,8 +28,10 @@ public class Game {
 
         Jogada jogadaUsuario = jogador.getJogada();
         Jogada jogadaComputador = computador.getJogada();
+        numeroRodadas++;
 
         if(jogadaUsuario == jogadaComputador) {
+            empates++;
             return "Empate!";
         } else if (jogadaUsuario.venceDe(jogadaComputador)){
             vitoriasJogador++;
@@ -58,5 +62,20 @@ public class Game {
 
     public int getVitoriasComputador() {
         return vitoriasComputador;
+    }
+
+    public int getNumeroRodadas() {
+        return numeroRodadas;
+    }
+
+    public int getEmpates() {
+        return empates;
+    }
+
+    public void reiniciarJogo(){
+        this.vitoriasJogador = 0;
+        this.vitoriasComputador = 0;
+        this.numeroRodadas = 0;
+        this.empates = 0;
     }
 }
